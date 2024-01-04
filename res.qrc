@@ -1,0 +1,15 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/document_0.png</file>
+    <file>icons/apple.png</file>
+    <file>icons/bilibili.png</file>
+    <file>icons/close.png</file>
+    <file>icons/csdn.png</file>
+    <file>icons/exit.png</file>
+    <file>icons/login.png</file>
+    <file>icons/minimizing.png</file>
+    <file>icons/register.png</file>
+    <file>icons/tab_home_icon_wode_02.png</file>
+    <file>icons/腾讯视频.png</file>
+  </qresource>
+</RCC>
