@@ -10,10 +10,14 @@ from PIL import Image
 import Ui_interfaceUi
 import Ui_loginui
 
+import requests
+
 user_now = ''
  
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s:%(message)s')
+
+# 
 
 
 class ImageGenerationThread(QThread):
@@ -113,6 +117,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_2.clicked.connect(self.on_generate_clicked)
         self.ui.pushButton_logout.clicked.connect(self.logout)
         self.ui.pushButton_3.clicked.connect(self.download_image)
+        self.fetch_data()
                                                
         self.show()
 
@@ -129,6 +134,12 @@ class MainWindow(QMainWindow):
         self.thread = ImageGenerationThread(description)
         self.thread.image_generated.connect(self.display_image)
         self.thread.start()
+
+    def fetch_data(self):
+        url = 'http://127.0.0.1:8188/object_info'  # 示例 API
+        response = requests.get(url)
+        print(response)
+        self.ui.label.setText(response.text)
 
     def display_image(self, qimage):
         pixmap = qimage.scaled(self.ui.label.width(), self.ui.label.height(), Qt.KeepAspectRatio)
